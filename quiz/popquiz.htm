@@ -27,20 +27,15 @@ font:normal 13px Arial;
 
 var actualchoices=new Array()
 document.cookie="ready=yes";
-//alert(document["query1"]);
-//alert(document["query1"].innerHtml);
-//alert(queries[1]);
-//document["query1"].innerHtml=queries[1];
 
-function init() {
-document.getElementById("query1").innerHTML=queries[1];
+function onload() {
+    setupQuiz();
 }
-
 </script>
 
 </head>
 
-<body bgcolor="#FFFFFF" onload="init()">
+<body bgcolor="#FFFFFF" onload="onload();">
 
 <!--Comments on configuring quiz script-->
 <!--Change the questions below any way you want, but make note of the following:-->
@@ -53,10 +48,11 @@ document.getElementById("query1").innerHTML=queries[1];
 
 <form method="POST" name="myquiz">
 
-<font face="Arial"><big><big>General Knowledge Quiz</big></big></font></p>
+<font face="Arial"><big><big>Math Quiz</big></big></font></p>
 
 <div class="qheader">
 <div id="query1">text</div>
+</div>
 <div class="qselections">
 <input type="radio" value="a" name="question1">A<input type="radio" value="b" name="question1">B
 <input type="radio" value="c" name="question1">C<input type="radio" value="d" name="question1">D
@@ -66,7 +62,8 @@ document.getElementById("query1").innerHTML=queries[1];
 <br>
 
 <div class="qheader">
-2) What is the world's most common religion?</div>
+<div id="query2">text</div>
+</div>
 <div class="qselections">
 <input type="radio" value="a" name="question2">a) Christianity<br>
 <input type="radio" value="b" name="question2">b) Buddhism<br>
@@ -77,7 +74,8 @@ document.getElementById("query1").innerHTML=queries[1];
 <br>
 
 <div class="qheader">
-3) Which city ranks as the world's most populous city (2002)?</div>
+<div id="query3">text</div>
+</div>
 <div class="qselections">
 <input type="radio" value="a" name="question3">a) New York (US)<br>
 <input type="radio" value="b" name="question3">b) Mexico City (Mexico)<br>
@@ -88,7 +86,8 @@ document.getElementById("query1").innerHTML=queries[1];
 <br>
 
 <div class="qheader">
-4) What is the second largest country (in size) in the world?</div>
+<div id="query4">text</div>
+</div>
 <div class="qselections">
 <input type="radio" value="a" name="question4">a) USA<br>
 <input type="radio" value="b" name="question4">b) China<br>

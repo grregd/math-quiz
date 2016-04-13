@@ -21,8 +21,19 @@ correctchoices[8]='b'
 correctchoices[9]='c'
 correctchoices[10]='b'
 
-var queries = new Array()
-queries[1]='<img src="../../../Downloads/kangurek/kangur - zrzuty ekranu/maluch/1993/01.png" width="50%"/>';
+var baseAnswers = ['A', 'B', 'C', 'D', 'E', 'brak odpowiedzi'];
+var score3pts = '<b>3</b> punkty';
+var items = [
+{ query: '<img src="images/maluch/1993/01.png" width="50%"/>', scoreMax: score3pts, answers: baseAnswers },
+{ query: '<img src="images/maluch/1994/01.png" width="50%"/>', scoreMax: score3pts, answers: baseAnswers },
+{ query: '<img src="images/maluch/1995/01.png" width="50%"/>', scoreMax: score3pts, answers: baseAnswers }];
+
+
+function setupQuiz() {
+    for ( i = 0; i < items.length; ++i ) {
+        document.getElementById("query"+(i+1)).innerHTML = items[i].query;
+    }
+}
 
 /////Don't edit beyond here//////////////////////////
 
