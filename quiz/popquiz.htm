@@ -29,7 +29,7 @@ var actualchoices=new Array()
 document.cookie="ready=yes";
 
 function onload() {
-    setupQuiz();
+    setupQuiz(document.getElementById("myquiz"));
 }
 </script>
 
@@ -46,7 +46,7 @@ function onload() {
 
 <p align="center">
 
-<form method="POST" name="myquiz">
+<form method="POST" name="myquiz" id="myquiz">
 
 <font face="Arial"><big><big>Math Quiz</big></big></font></p>
 

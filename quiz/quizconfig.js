@@ -29,9 +29,41 @@ var items = [
 { query: '<img src="images/maluch/1995/01.png" width="50%"/>', scoreMax: score3pts, answers: baseAnswers }];
 
 
-function setupQuiz() {
-    for ( i = 0; i < items.length; ++i ) {
-        document.getElementById("query"+(i+1)).innerHTML = items[i].query;
+function createQueryItem(itemNum, item) {
+    var divAnswers = document.createElement('div');
+    divAnswers.className = "qselections";
+    for ( var i = 0; i < item.answers.length; ++i ) {
+        var answerElement = document.createElement('input');
+        answerElement.type = 'radio';
+        answerElement.value = item.answers[i];
+        answerElement.name = "question"+itemNum;
+        var textElement = document.createElement('text');
+        textElement.innerHTML = item.answers[i];
+
+        divAnswers.appendChild( answerElement );
+        divAnswers.appendChild( textElement );
+    }
+
+    var divQuery = document.createElement('div');
+    divQuery.id = "query"+itemNum;
+    divQuery.innerHTML = item.query;
+
+    var divQheader = document.createElement('div');
+    divQheader.className = "qheader";
+    divQheader.appendChild(divQuery);
+
+    var divItem = document.createElement('div');
+    divItem.appendChild( divQheader );
+    divItem.appendChild( divAnswers );
+
+    return divItem;
+}
+
+
+function setupQuiz(formElement) {
+    for ( var i = 0; i < items.length; ++i ) {
+        formElement.appendChild(
+            createQueryItem( i, items[i] ) );
     }
 }
 
