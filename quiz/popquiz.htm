@@ -1,6 +1,7 @@
 <html>
 
 <head>
+<meta charset="utf-8"/>
 <title>JavaScriptKit.com Multiple Choice Quiz Script</title>
 
 <style>
@@ -16,6 +17,9 @@ font:normal 13px Arial;
 <script src="quizconfig.js">
 </script>
 
+<script src="questionsdb.js">
+</script>
+
 <script>
 
 /***********************************************
@@ -28,14 +32,14 @@ font:normal 13px Arial;
 var actualchoices=new Array()
 document.cookie="ready=yes";
 
-function onload() {
+function onloadBody() {
     setupQuiz(document.getElementById("myquiz"));
 }
 </script>
 
 </head>
 
-<body bgcolor="#FFFFFF" onload="onload();">
+<body bgcolor="#FFFFFF" onload="onloadBody();">
 
 <!--Comments on configuring quiz script-->
 <!--Change the questions below any way you want, but make note of the following:-->

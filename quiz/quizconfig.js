@@ -21,13 +21,6 @@ correctchoices[8]='b'
 correctchoices[9]='c'
 correctchoices[10]='b'
 
-var baseAnswers = ['A', 'B', 'C', 'D', 'E', 'brak odpowiedzi'];
-var score3pts = '<b>3</b> punkty';
-var items = [
-{ query: '<img src="images/maluch/1993/01.png" width="50%"/>', scoreMax: score3pts, answers: baseAnswers },
-{ query: '<img src="images/maluch/1994/01.png" width="50%"/>', scoreMax: score3pts, answers: baseAnswers },
-{ query: '<img src="images/maluch/1995/01.png" width="50%"/>', scoreMax: score3pts, answers: baseAnswers }];
-
 
 function createQueryItem(itemNum, item) {
     var divAnswers = document.createElement('div');
@@ -59,12 +52,27 @@ function createQueryItem(itemNum, item) {
     return divItem;
 }
 
-
-function setupQuiz(formElement) {
+function createGroup(groupTitleHtml, items, formElement) {
+    var divGroup = document.createElement('div');
+    divGroupTitle = document.createElement('div');
+    divGroupTitle.innerHTML = groupTitleHtml;
+    divGroup.appendChild( divGroupTitle );
     for ( var i = 0; i < items.length; ++i ) {
-        formElement.appendChild(
+        divGroup.appendChild(
             createQueryItem( i, items[i] ) );
     }
+
+    return divGroup;
+}
+
+
+function setupQuiz(formElement) {
+    formElement.appendChild( createGroup(
+        "<b>Zadania za 3 punkty", items3Points ) );
+    formElement.appendChild( createGroup(
+        "<b>Zadania za 4 punkty", items4Points ) );
+    formElement.appendChild( createGroup(
+        "<b>Zadania za 5 punków", items5Points ) );
 }
 
 /////Don't edit beyond here//////////////////////////
