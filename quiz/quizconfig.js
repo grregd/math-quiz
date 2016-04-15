@@ -57,6 +57,12 @@ function createQueryItem(itemNum, item) {
     divItem.appendChild( input );
 
     input = document.createElement('input');
+    input.name = 'points';
+    input.type = 'hidden';
+    input.value = item.pointsMax.value;
+    divItem.appendChild( input );
+
+    input = document.createElement('input');
     input.name = 'penalty';
     input.type = 'hidden';
     input.value = item.penalty;
