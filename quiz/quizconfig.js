@@ -46,8 +46,22 @@ function createQueryItem(itemNum, item) {
     divQheader.appendChild(divQuery);
 
     var divItem = document.createElement('div');
+
     divItem.appendChild( divQheader );
     divItem.appendChild( divAnswers );
+
+    var input = document.createElement('input');
+    input.name = 'correct';
+    input.type = 'hidden';
+    input.value = item.correct;
+    divItem.appendChild( input );
+
+    input = document.createElement('input');
+    input.name = 'penalty';
+    input.type = 'hidden';
+    input.value = item.penalty;
+    divItem.appendChild( input );
+
 
     return divItem;
 }
