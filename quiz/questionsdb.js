@@ -27,6 +27,34 @@ items3Points = new Array();
 items4Points = new Array();
 items5Points = new Array();
 
+correctAnswers = [
+    ['CCAEEBDBCAACBDCDBEDCADAEBADBDD'], // 1993
+    ['BCCECCBCDBEDDCBAEDAACACCEBCBDC'], // 1994
+    ['BEBBBADDBDADCBCEABBCBDCBBDDBDA'], // 1995
+    ['CDBBBBDDDCBEACDEDBCAECBED'], // 1996
+    ['CCBCBBCADECBECEBDEBBDCDDC'], // 1997
+    ['CDCDCCDCECCABDBDEDBBB'], // 1998
+    ['CEBCDECBEBCADADDDCCAADCA'], // 1999
+    ['BCDABCBCBDBDBCCCBBECCAEA'], // 2000
+    ['CDDCBEEECDEECBCACCDAABDE'], // 2001
+    ['BCDDDCABCECAEBCEABDECDED'], // 2002
+    ['ECDACDCCCCDACABCDEEABDAB'], // 2003
+    ['AECCEBEBDDBBEBECECCAABEE'], // 2004
+    ['CABBBDECCBBCDDEDBBCDCEBE'], // 2005
+    ['CBDAEDBBCEADCEACBDDEBECB'], // 2006
+    [''], // 2007
+    [''], // 2008
+    [''], // 2009
+    [''], // 2010
+    [''], // 2011
+    [''], // 2012
+    [''], // 2013
+    [''], // 2014
+    [''], // 2015
+
+
+
+
 generateItems( items3Points, 1993, 1995, 1, 10, pts3, baseAnswers, 'A', penalty(pts3) );
 generateItems( items3Points, 1996, 1999, 1, 7,  pts3, baseAnswers, 'A', penalty(pts3) );
 generateItems( items3Points, 1999, 2015, 1, 8,  pts3, baseAnswers, 'A', penalty(pts3) );
