@@ -49,8 +49,8 @@ correctAnswers = [
     ['AACEBADBCBBCEADCACCCEDAE'], // 2011
     ['ADBCBECDECECBCBDDDEEEDCD'], // 2012
     ['DDBCDBEBEDDAEBBDCBDCEBBC'], // 2013
-    ['DECAAEEEBEDBDBCBCCDD?'], // 2014
-    [''], // 2015
+    ['DDDAAEEEBEEBDBCBCCDBDBDD'], // 2014
+    ['EAECEEBDADBBCBDCACADECEC'], // 2015
 
 
 
@@ -60,8 +60,8 @@ generateItems( items3Points, 1996, 1999, 1, 7,  pts3, baseAnswers, 'A', penalty(
 generateItems( items3Points, 1999, 2015, 1, 8,  pts3, baseAnswers, 'A', penalty(pts3) );
 
 generateItems( items4Points, 1993, 1995, 11, 20, pts4, baseAnswers, 'A', penalty(pts4) );
-generateItems( items4Points, 1996, 1999, 8, 14,  pts4, baseAnswers, 'A', penalty(pts4) );
-generateItems( items4Points, 1999, 2015, 9, 16,  pts4, baseAnswers, 'A', penalty(pts4) );
+generateItems( items4Points, 1996, 1999, 8,  14, pts4, baseAnswers, 'A', penalty(pts4) );
+generateItems( items4Points, 1999, 2015, 9,  16, pts4, baseAnswers, 'A', penalty(pts4) );
 
 generateItems( items5Points, 1993, 1995, 21, 30, pts5, baseAnswers, 'A', penalty(pts5) );
 generateItems( items5Points, 1996, 1999, 15, 21, pts5, baseAnswers, 'A', penalty(pts5) );
