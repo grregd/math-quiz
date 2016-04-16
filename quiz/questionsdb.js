@@ -49,7 +49,7 @@ correctAnswers = [
     ['AACEBADBCBBCEADCACCCEDAE'], // 2011
     ['ADBCBECDECECBCBDDDEEEDCD'], // 2012
     ['DDBCDBEBEDDAEBBDCBDCEBBC'], // 2013
-    [''], // 2014
+    ['DECAAEEEBEDBDBCBCCDD?'], // 2014
     [''], // 2015
 
 
