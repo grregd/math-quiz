@@ -11,7 +11,7 @@ function generateItems( table, yBeg, yEnd, qBeg, qEnd, points, answers, correct,
     for ( year = yBeg; year <= yEnd; ++year ) {
         for ( query = qBeg; query <= qEnd; ++query ) {
             table.push( createItem( '<img src="images/maluch/' + year + '/0' + query + '.png" width="50%"/>',
-                                    points, answers, correct, aPenalty) );
+                                    points, answers, correct[year-yBeg][query-qBeg], aPenalty) );
         }
     }
 }
@@ -28,43 +28,44 @@ items4Points = new Array();
 items5Points = new Array();
 
 correctAnswers = [
-    ['CCAEEBDBCAACBDCDBEDCADAEBADBDD'], // 1993
-    ['BCCECCBCDBEDDCBAEDAACACCEBCBDC'], // 1994
-    ['BEBBBADDBDADCBCEABBCBDCBBDDBDA'], // 1995
-    ['CDBBBBDDDCBEACDEDBCAECBED'], // 1996
-    ['CCBCBBCADECBECEBDEBBDCDDC'], // 1997
-    ['CDCDCCDCECCABDBDEDBBB'], // 1998
-    ['CEBCDECBEBCADADDDCCAADCA'], // 1999
-    ['BCDABCBCBDBDBCCCBBECCAEA'], // 2000
-    ['CDDCBEEECDEECBCACCDAABDE'], // 2001
-    ['BCDDDCABCECAEBCEABDECDED'], // 2002
-    ['ECDACDCCCCDACABCDEEABDAB'], // 2003
-    ['AECCEBEBDDBBEBECECCAABEE'], // 2004
-    ['CABBBDECCBBCDDEDBBCDCEBE'], // 2005
-    ['CBDAEDBBCEADCEACBDDEBECB'], // 2006
-    ['CACCCECBCCACABBAEBCAABDE'], // 2007
-    ['CDBBDAEAEDEDECBBCADEEBCD'], // 2008
-    ['ECBABBCDCDABBDBAEDBDABEB'], // 2009
-    ['DCCCDACBEBBDDCDAECDDEBDE'], // 2010
-    ['AACEBADBCBBCEADCACCCEDAE'], // 2011
-    ['ADBCBECDECECBCBDDDEEEDCD'], // 2012
-    ['DDBCDBEBEDDAEBBDCBDCEBBC'], // 2013
-    ['DDDAAEEEBEEBDBCBCCDBDBDD'], // 2014
-    ['EAECEEBDADBBCBDCACADECEC'], // 2015
+    'CCAEEBDBCAACBDCDBEDCADAEBADBDD', // 1993
+    'BCCECCBCDBEDDCBAEDAACACCEBCBDC', // 1994
+    'BEBBBADDBDADCBCEABBCBDCBBDDBDA', // 1995
+    'CDBBBBDDDCBEACDEDBCAECBED',      // 1996
+    'CCBCBBCADECBECEBDEBBDCDDC',      // 1997
+    'CDCDCCDCECCABDBDEDBBB',    // 1998
+    'CEBCDECBEBCADADDDCCAADCA', // 1999
+    'BCDABCBCBDBDBCCCBBECCAEA', // 2000
+    'CDDCBEEECDEECBCACCDAABDE', // 2001
+    'BCDDDCABCECAEBCEABDECDED', // 2002
+    'ECDACDCCCCDACABCDEEABDAB', // 2003
+    'AECCEBEBDDBBEBECECCAABEE', // 2004
+    'CABBBDECCBBCDDEDBBCDCEBE', // 2005
+    'CBDAEDBBCEADCEACBDDEBECB', // 2006
+    'CACCCECBCCACABBAEBCAABDE', // 2007
+    'CDBBDAEAEDEDECBBCADEEBCD', // 2008
+    'ECBABBCDCDABBDBAEDBDABEB', // 2009
+    'DCCCDACBEBBDDCDAECDDEBDE', // 2010
+    'AACEBADBCBBCEADCACCCEDAE', // 2011
+    'ADBCBECDECECBCBDDDEEEDCD', // 2012
+    'DDBCDBEBEDDAEBBDCBDCEBBC', // 2013
+    'DDDAAEEEBEEBDBCBCCDBDBDD', // 2014
+    'EAECEEBDADBBCBDCACADECEC'  // 2015
+];
 
 
 
 
-generateItems( items3Points, 1993, 1995, 1, 10, pts3, baseAnswers, 'A', penalty(pts3) );
-generateItems( items3Points, 1996, 1999, 1, 7,  pts3, baseAnswers, 'A', penalty(pts3) );
-generateItems( items3Points, 1999, 2015, 1, 8,  pts3, baseAnswers, 'A', penalty(pts3) );
+generateItems( items3Points, 1993, 1995, 1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3) );
+generateItems( items3Points, 1996, 1999, 1, 7,  pts3, baseAnswers, correctAnswers, penalty(pts3) );
+generateItems( items3Points, 1999, 2015, 1, 8,  pts3, baseAnswers, correctAnswers, penalty(pts3) );
 
-generateItems( items4Points, 1993, 1995, 11, 20, pts4, baseAnswers, 'A', penalty(pts4) );
-generateItems( items4Points, 1996, 1999, 8,  14, pts4, baseAnswers, 'A', penalty(pts4) );
-generateItems( items4Points, 1999, 2015, 9,  16, pts4, baseAnswers, 'A', penalty(pts4) );
+generateItems( items4Points, 1993, 1995, 11, 20, pts4, baseAnswers, correctAnswers, penalty(pts4) );
+generateItems( items4Points, 1996, 1999, 8,  14, pts4, baseAnswers, correctAnswers, penalty(pts4) );
+generateItems( items4Points, 1999, 2015, 9,  16, pts4, baseAnswers, correctAnswers, penalty(pts4) );
 
-generateItems( items5Points, 1993, 1995, 21, 30, pts5, baseAnswers, 'A', penalty(pts5) );
-generateItems( items5Points, 1996, 1999, 15, 21, pts5, baseAnswers, 'A', penalty(pts5) );
-generateItems( items5Points, 1999, 2015, 17, 24, pts5, baseAnswers, 'A', penalty(pts5) );
+generateItems( items5Points, 1993, 1995, 21, 30, pts5, baseAnswers, correctAnswers, penalty(pts5) );
+generateItems( items5Points, 1996, 1999, 15, 21, pts5, baseAnswers, correctAnswers, penalty(pts5) );
+generateItems( items5Points, 1999, 2015, 17, 24, pts5, baseAnswers, correctAnswers, penalty(pts5) );
 
 
