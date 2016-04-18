@@ -6,7 +6,9 @@
 ***********************************************/
 
 //Enter total number of questions:
-var totalquestions=10
+var totalQuestions=0
+var initScore = 0;
+var maxScore = 0;
 
 //Enter the solutions corresponding to each question:
 var correctchoices=new Array()
@@ -86,9 +88,10 @@ function createGroup(groupTitleHtml, items, startNum) {
 }
 
 
-function setupQuiz(formElement) {
-    var numInGroup = 2;
-    totalquestions = 3*numInGroup;
+function setupQuiz(formElement, numInGroup) {
+    totalQuestions = 3*numInGroup;
+    initScore = numInGroup*(3/4 + 4/4 + 5/4);
+    maxScore = numInGroup*(3+4+5);
     formElement.appendChild( createGroup(
         "<b>Zadania za 3 punkty", selectRandomItems(items3Points, 2), 0 ) );
     formElement.appendChild( createGroup(
@@ -99,11 +102,11 @@ function setupQuiz(formElement) {
 
 /////Don't edit beyond here//////////////////////////
 
-function gradeit( initScore, maxScore ) {
+function gradeit() {
     var incorrect=null
     var totalScore = initScore;
 
-    for ( q = 0 ; q < totalquestions ; q++ ) {
+    for ( q = 0 ; q < totalQuestions ; q++ ) {
         var thequestion = eval("document.myquiz.question"+q)
         var e = eval("document.myquiz.correct"+q)
         var correct = e.value;
@@ -157,7 +160,7 @@ win2.document.write('<title>Solution</title>')
 win2.document.write('<body bgcolor="#FFFFFF">')
 win2.document.write('<center><h3>Solution to Quiz</h3></center>')
 win2.document.write('<center><font face="Arial">')
-for (i=1;i<=totalquestions;i++){
+for (i=1;i<=totalQuestions;i++){
 for (temp=0;temp<incorrect.length;temp++){
 if (i==incorrect[temp])
 wrong=1

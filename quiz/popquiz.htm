@@ -33,7 +33,7 @@ var actualchoices=new Array()
 document.cookie="ready=yes";
 
 function onloadBody() {
-    setupQuiz(document.getElementById("myquiz"));
+    setupQuiz(document.getElementById("myquiz"), 2);
 }
 </script>
 
@@ -58,7 +58,7 @@ function onloadBody() {
 
 <form name="submitForm">
 <div align="center">
-<input type="button" value="Grade Me!" name="B1" onClick="gradeit(30, 120)">
+<input type="button" value="Grade Me!" name="B1" onClick="gradeit()">
 </div>
 <div id="score">
 </div>
