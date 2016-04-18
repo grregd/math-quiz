@@ -88,11 +88,11 @@ function createGroup(groupTitleHtml, items, formElement) {
 
 function setupQuiz(formElement) {
     formElement.appendChild( createGroup(
-        "<b>Zadania za 3 punkty", items3Points ) );
+        "<b>Zadania za 3 punkty", selectRandomItems(items3Points, 2) ) );
     formElement.appendChild( createGroup(
-        "<b>Zadania za 4 punkty", items4Points ) );
+        "<b>Zadania za 4 punkty", selectRandomItems(items4Points, 2) ) );
     formElement.appendChild( createGroup(
-        "<b>Zadania za 5 punków", items5Points ) );
+        "<b>Zadania za 5 punków", selectRandomItems(items5Points, 2) ) );
 }
 
 /////Don't edit beyond here//////////////////////////

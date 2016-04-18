@@ -1,32 +1,4 @@
 
-function createItem( aQuery, aPointsMax, aAnswers, aCorrect, aPenalty ) {
-    return { query: aQuery, pointsMax: aPointsMax, answers: aAnswers, correct: aCorrect, penalty: aPenalty };
-}
-
-function penalty( aPointsMax ) {
-    return 1/4*aPointsMax.value;
-}
-
-function generateItems( table, yBeg, yEnd, qBeg, qEnd, points, answers, correct, aPenalty ) {
-    for ( year = yBeg; year <= yEnd; ++year ) {
-        for ( query = qBeg; query <= qEnd; ++query ) {
-            table.push( createItem( '<img src="images/maluch/' + year + '/' + ('0' + query).slice(-2) + '.png" width="50%"/>',
-                                    points, answers, correct[year-yBeg][query-qBeg], aPenalty) );
-        }
-    }
-}
-
-
-var baseAnswers = ['A', 'B', 'C', 'D', 'E', 'brak odpowiedzi'];
-var pts3 = { value: 3, label: '<b>3</b> punkty' };
-var pts4 = { value: 4, label: '<b>4</b> punkty' };
-var pts5 = { value: 5, label: '<b>5</b> punkty' };
-
-
-items3Points = new Array();
-items4Points = new Array();
-items5Points = new Array();
-
 correctAnswers = [
     'CCAEEBDBCAACBDCDBEDCADAEBADBDD', // 1993
     'BCCECCBCDBEDDCBAEDAACACCEBCBDC', // 1994
@@ -54,6 +26,45 @@ correctAnswers = [
 ];
 
 
+var baseAnswers = ['A', 'B', 'C', 'D', 'E', 'brak odpowiedzi'];
+var pts3 = { value: 3, label: '<b>3</b> punkty' };
+var pts4 = { value: 4, label: '<b>4</b> punkty' };
+var pts5 = { value: 5, label: '<b>5</b> punkty' };
+
+
+items3Points = new Array();
+items4Points = new Array();
+items5Points = new Array();
+
+
+function createItem( aQuery, aPointsMax, aAnswers, aCorrect, aPenalty ) {
+    return { query: aQuery, pointsMax: aPointsMax, answers: aAnswers, correct: aCorrect, penalty: aPenalty };
+}
+
+function penalty( aPointsMax ) {
+    return 1/4*aPointsMax.value;
+}
+
+function generateItems( table, yBeg, yEnd, qBeg, qEnd, points, answers, correct, aPenalty ) {
+    for ( year = yBeg; year <= yEnd; ++year ) {
+        for ( query = qBeg; query <= qEnd; ++query ) {
+            table.push( createItem( '<img src="images/maluch/' + year + '/' + ('0' + query).slice(-2) + '.png" width="50%"/>',
+                                    points, answers, correct[year-yBeg][query-qBeg], aPenalty) );
+        }
+    }
+}
+
+function selectRandomItems( array, numberOfItems ) {
+    var randomNumbers = new Set();
+    while ( numberOfItems-- > 0 ) {
+        randomNumbers.add( Math.floor(Math.random()*array.length) );
+    }
+
+    var result = new Array();
+    randomNumbers.forEach( function(value) { result.push(array[value]); } );
+
+    return result;
+}
 
 
 generateItems( items3Points, 1993, 1995, 1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3) );
