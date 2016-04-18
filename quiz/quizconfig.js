@@ -77,14 +77,14 @@ function createGroup(groupTitleHtml, items, startNum) {
 
 function setupQuiz(formElement, numInGroup) {
     totalQuestions = 3*numInGroup;
-    initScore = numInGroup*(3/4 + 4/4 + 5/4);
+    initScore = numInGroup*(3+4+5)/4;
     maxScore = numInGroup*(3+4+5);
     formElement.appendChild( createGroup(
-        "<b>Zadania za 3 punkty", selectRandomItems(items3Points, 2), 0 ) );
+        "<b>Zadania za 3 punkty", selectRandomItems(items3Points, numInGroup), 0 ) );
     formElement.appendChild( createGroup(
-        "<b>Zadania za 4 punkty", selectRandomItems(items4Points, 2), 1*numInGroup ) );
+        "<b>Zadania za 4 punkty", selectRandomItems(items4Points, numInGroup), 1*numInGroup ) );
     formElement.appendChild( createGroup(
-        "<b>Zadania za 5 punków", selectRandomItems(items5Points, 2), 2*numInGroup ) );
+        "<b>Zadania za 5 punków", selectRandomItems(items5Points, numInGroup), 2*numInGroup ) );
 }
 
 /////Don't edit beyond here//////////////////////////
