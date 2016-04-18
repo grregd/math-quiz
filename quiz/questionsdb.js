@@ -51,7 +51,7 @@ function generateItems( table, yBeg, yEnd, qBeg, qEnd, points, answers, correct,
     for ( year = yBeg; year <= yEnd; ++year ) {
         for ( query = qBeg; query <= qEnd; ++query ) {
             table.push( createItem( '<img src="images/maluch/' + year + '/' + ('0' + query).slice(-2) + '.png" width="50%"/>',
-                                    points, answers, correct[year-startYear][query-qBeg], aPenalty) );
+                                    points, answers, correct[year-startYear][query-1], aPenalty) );
         }
     }
 }
