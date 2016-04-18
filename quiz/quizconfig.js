@@ -12,7 +12,7 @@ function createQueryItem(itemNum, item) {
         answerElement.value = item.answers[i];
         answerElement.name = "question"+itemNum;
         var textElement = document.createElement('text');
-        textElement.innerHTML = item.answers[i];
+        textElement.innerHTML = item.answers[i] + '<BR/>';
 
         divAnswers.appendChild( answerElement );
         divAnswers.appendChild( textElement );
