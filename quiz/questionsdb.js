@@ -26,7 +26,7 @@ correctAnswers = [
 ];
 
 
-var baseAnswers = ['A', 'B', 'C', 'D', 'E', 'brak odpowiedzi'];
+var baseAnswers = ['brak odpowiedzi', 'A', 'B', 'C', 'D', 'E'];
 var pts3 = { value: 3, label: '<b>3</b> punkty' };
 var pts4 = { value: 4, label: '<b>4</b> punkty' };
 var pts5 = { value: 5, label: '<b>5</b> punkty' };

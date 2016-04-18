@@ -51,19 +51,19 @@ function createQueryItem(itemNum, item) {
     divItem.appendChild( divAnswers );
 
     var input = document.createElement('input');
-    input.name = 'correct';
+    input.name = 'correct'+itemNum;
     input.type = 'hidden';
     input.value = item.correct;
     divItem.appendChild( input );
 
     input = document.createElement('input');
-    input.name = 'points';
+    input.name = 'points'+itemNum;
     input.type = 'hidden';
     input.value = item.pointsMax.value;
     divItem.appendChild( input );
 
     input = document.createElement('input');
-    input.name = 'penalty';
+    input.name = 'penalty'+itemNum;
     input.type = 'hidden';
     input.value = item.penalty;
     divItem.appendChild( input );
@@ -72,14 +72,14 @@ function createQueryItem(itemNum, item) {
     return divItem;
 }
 
-function createGroup(groupTitleHtml, items, formElement) {
+function createGroup(groupTitleHtml, items, startNum) {
     var divGroup = document.createElement('div');
     divGroupTitle = document.createElement('div');
     divGroupTitle.innerHTML = groupTitleHtml;
     divGroup.appendChild( divGroupTitle );
     for ( var i = 0; i < items.length; ++i ) {
         divGroup.appendChild(
-            createQueryItem( i, items[i] ) );
+            createQueryItem( startNum+i, items[i] ) );
     }
 
     return divGroup;
@@ -87,40 +87,60 @@ function createGroup(groupTitleHtml, items, formElement) {
 
 
 function setupQuiz(formElement) {
+    var numInGroup = 2;
+    totalquestions = 3*numInGroup;
     formElement.appendChild( createGroup(
-        "<b>Zadania za 3 punkty", selectRandomItems(items3Points, 2) ) );
+        "<b>Zadania za 3 punkty", selectRandomItems(items3Points, 2), 0 ) );
     formElement.appendChild( createGroup(
-        "<b>Zadania za 4 punkty", selectRandomItems(items4Points, 2) ) );
+        "<b>Zadania za 4 punkty", selectRandomItems(items4Points, 2), 1*numInGroup ) );
     formElement.appendChild( createGroup(
-        "<b>Zadania za 5 punków", selectRandomItems(items5Points, 2) ) );
+        "<b>Zadania za 5 punków", selectRandomItems(items5Points, 2), 2*numInGroup ) );
 }
 
 /////Don't edit beyond here//////////////////////////
 
-function gradeit(){
-var incorrect=null
-for (q=1;q<=totalquestions;q++){
-	var thequestion=eval("document.myquiz.question"+q)
-	for (c=0;c<thequestion.length;c++){
-		if (thequestion[c].checked==true)
-		actualchoices[q]=thequestion[c].value
-		}
-		
-	if (actualchoices[q]!=correctchoices[q]){ //process an incorrect choice
-		if (incorrect==null)
-		incorrect=q
-		else
-		incorrect+="/"+q
-		}
-	}
+function gradeit() {
+    var incorrect=null
+    var totalScore = 30;
 
-if (incorrect==null)
-incorrect="a/b"
-document.cookie='q='+incorrect
-if (document.cookie=='')
-alert("Your browser does not accept cookies. Please adjust your browser settings.")
-else
-window.location="results.htm"
+    for ( q = 0 ; q < totalquestions ; q++ ) {
+        var thequestion = eval("document.myquiz.question"+q)
+        var e = eval("document.myquiz.correct"+q)
+        var correct = e.value;
+        e = eval("document.myquiz.points"+q);
+        var points  = e.value;
+        e = eval("document.myquiz.penalty"+q);
+        var penalty = e.value;
+
+        var answered = false;
+        for ( c = 0 ; c < thequestion.length ; c++ ) {
+            if (thequestion[c].checked==true) {
+                if (correct == thequestion[c].value) {
+                    totalScore += points;
+                    thequestion[c].parentNode.innerHTML
+                        = thequestion[c].value + ': <B style="color: green">OK</B>';
+                }
+                else if ( 'brak odpowiedzi' == thequestion[c].value) {
+                    thequestion[c].parentNode.innerHTML
+                        = thequestion[c].value;
+                }
+                else {
+                    totalScore -= penalty;
+                    thequestion[c].parentNode.innerHTML
+                        = thequestion[c].value + ': <B style="color:red">WRONG</B>';
+                }
+
+                answered = true;
+                break;
+            }
+        }
+
+        if ( ! answered ) {
+            thequestion[0].parentNode.innerHTML = 'brak odpowiedzi';
+        }
+    }
+    document.submitForm.B1.disabled = true;
+    console.log( totalScore );
 }
 
 
