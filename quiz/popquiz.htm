@@ -2,7 +2,7 @@
 
 <head>
 <meta charset="utf-8"/>
-<title>JavaScriptKit.com Multiple Choice Quiz Script</title>
+<title>Math quiz</title>
 
 <style>
 .qheader{
@@ -14,17 +14,9 @@ font:normal 13px Arial;
 }
 </style>
 
-<script src="quizconfig.js">
-</script>
-
-<script src="questionsdb.js">
-</script>
-
+<script src="quizconfig.js"></script>
+<script src="questionsdb.js"></script>
 <script>
-
-var actualchoices=new Array()
-document.cookie="ready=yes";
-
 function onloadBody() {
     setupQuiz(document.getElementById("myquiz"), 2);
 }
@@ -37,9 +29,6 @@ function onloadBody() {
 <p align="center">
 
 <form method="POST" name="myquiz" id="myquiz">
-
-<font face="Arial"><big><big>Math Quiz</big></big></font></p>
-
 </form>
 
 <form name="submitForm">

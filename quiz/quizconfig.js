@@ -61,6 +61,7 @@ function createGroup(groupTitleHtml, items, startNum) {
     for ( var i = 0; i < items.length; ++i ) {
         divGroup.appendChild(
             createQueryItem( startNum+i, items[i] ) );
+        divGroup.appendChild( document.createElement('hr') );
     }
 
     return divGroup;
