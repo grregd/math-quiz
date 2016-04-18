@@ -99,18 +99,18 @@ function setupQuiz(formElement) {
 
 /////Don't edit beyond here//////////////////////////
 
-function gradeit() {
+function gradeit( initScore, maxScore ) {
     var incorrect=null
-    var totalScore = 30;
+    var totalScore = initScore;
 
     for ( q = 0 ; q < totalquestions ; q++ ) {
         var thequestion = eval("document.myquiz.question"+q)
         var e = eval("document.myquiz.correct"+q)
         var correct = e.value;
         e = eval("document.myquiz.points"+q);
-        var points  = e.value;
+        var points  = +(e.value);
         e = eval("document.myquiz.penalty"+q);
-        var penalty = e.value;
+        var penalty = +(e.value);
 
         var answered = false;
         for ( c = 0 ; c < thequestion.length ; c++ ) {
@@ -118,7 +118,7 @@ function gradeit() {
                 if (correct == thequestion[c].value) {
                     totalScore += points;
                     thequestion[c].parentNode.innerHTML
-                        = thequestion[c].value + ': <B style="color: green">OK</B>';
+                        = thequestion[c].value + ': <B style="color: green">TAK</B>';
                 }
                 else if ( 'brak odpowiedzi' == thequestion[c].value) {
                     thequestion[c].parentNode.innerHTML
@@ -127,7 +127,8 @@ function gradeit() {
                 else {
                     totalScore -= penalty;
                     thequestion[c].parentNode.innerHTML
-                        = thequestion[c].value + ': <B style="color:red">WRONG</B>';
+                        = thequestion[c].value + ': <B style="color:red">NIE</B>'
+                        + " Poprawna odpowiedź: " + correct;
                 }
 
                 answered = true;
@@ -135,12 +136,16 @@ function gradeit() {
             }
         }
 
+        console.log( totalScore );
+
         if ( ! answered ) {
             thequestion[0].parentNode.innerHTML = 'brak odpowiedzi';
         }
     }
     document.submitForm.B1.disabled = true;
-    console.log( totalScore );
+    document.getElementById('score').innerHTML
+        = "Punkty: <B>" + totalScore + "</B> na " + maxScore + "<BR/>"
+        + "<B>" + 100*totalScore/maxScore + "</B>%";
 }
 
 
