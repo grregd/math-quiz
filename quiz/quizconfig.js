@@ -71,7 +71,7 @@ function createGroup(groupTitleHtml, items, startNum) {
 function setupQuiz(formElement, numInGroup, category) {
     totalQuestions = 3*numInGroup;
     initScore = numInGroup*(3+4+5)/4;
-    maxScore = numInGroup*(3+4+5);
+    maxScore = initScore+numInGroup*(3+4+5);
     formElement.appendChild( createGroup(
         "<b>Zadania za 3 punkty", selectRandomItems(allItems.get(category)[0], numInGroup), 0 ) );
     formElement.appendChild( createGroup(
