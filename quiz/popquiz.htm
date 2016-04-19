@@ -17,9 +17,24 @@ font:normal 13px Arial;
 <script src="quizconfig.js"></script>
 <script src="questionsdb.js"></script>
 <script>
-function onloadBody() {
-    setupQuiz(document.getElementById("myquiz"), 2);
+
+function generateQuiz() {
+    var numNode = document.getElementById("numberOfQuestions");
+    var numberOfQ = numNode.value;
+    var quizDiv = document.getElementById("queries");
+    quizDiv.innerHTML = "";
+
+    setupQuiz(quizDiv, +(numberOfQ)/3);
 }
+
+function onloadBody() {
+    generateQuiz();
+}
+
+function onchangeForm() {
+    generateQuiz();
+}
+
 </script>
 
 </head>
@@ -29,6 +44,20 @@ function onloadBody() {
 <p align="center">
 
 <form method="POST" name="myquiz" id="myquiz">
+Liczba zadań:
+<select type="select" id="numberOfQuestions" onchange="onchangeForm();">
+    <option value="3">3</option>
+    <option value="6" selected>6</option>
+    <option value="9">9</option>
+    <option value="24">24</option>
+</select>,
+ kategoria: <select>
+    <option disabled>Żaczek</option>
+    <option selected>Maluch</option>
+</select>
+<br/><br/>
+<div id="queries">
+</div>
 </form>
 
 <form name="submitForm">
