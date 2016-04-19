@@ -68,16 +68,16 @@ function createGroup(groupTitleHtml, items, startNum) {
 }
 
 
-function setupQuiz(formElement, numInGroup) {
+function setupQuiz(formElement, numInGroup, category) {
     totalQuestions = 3*numInGroup;
     initScore = numInGroup*(3+4+5)/4;
     maxScore = numInGroup*(3+4+5);
     formElement.appendChild( createGroup(
-        "<b>Zadania za 3 punkty", selectRandomItems(items3Points, numInGroup), 0 ) );
+        "<b>Zadania za 3 punkty", selectRandomItems(allItems.get(category)[0], numInGroup), 0 ) );
     formElement.appendChild( createGroup(
-        "<b>Zadania za 4 punkty", selectRandomItems(items4Points, numInGroup), 1*numInGroup ) );
+        "<b>Zadania za 4 punkty", selectRandomItems(allItems.get(category)[1], numInGroup), 1*numInGroup ) );
     formElement.appendChild( createGroup(
-        "<b>Zadania za 5 punków", selectRandomItems(items5Points, numInGroup), 2*numInGroup ) );
+        "<b>Zadania za 5 punków", selectRandomItems(allItems.get(category)[2], numInGroup), 2*numInGroup ) );
 }
 
 function gradeit() {

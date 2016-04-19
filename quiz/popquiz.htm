@@ -19,12 +19,13 @@ font:normal 13px Arial;
 <script>
 
 function generateQuiz() {
+    var catNode = document.myquiz.category;
     var numNode = document.getElementById("numberOfQuestions");
     var numberOfQ = numNode.value;
     var quizDiv = document.getElementById("queries");
     quizDiv.innerHTML = "";
 
-    setupQuiz(quizDiv, +(numberOfQ)/3);
+    setupQuiz(quizDiv, +(numberOfQ)/3, catNode.value);
 }
 
 function onloadBody() {
@@ -51,9 +52,9 @@ Liczba zadań:
     <option value="9">9</option>
     <option value="24">24</option>
 </select>,
- kategoria: <select>
-    <option disabled>Żaczek</option>
-    <option selected>Maluch</option>
+ kategoria: <select name="category" onchange="onchangeForm()">
+    <option disabled value="zaczek">Żaczek</option>
+    <option selected value="maluch">Maluch</option>
 </select>
 <br/><br/>
 <div id="queries">
