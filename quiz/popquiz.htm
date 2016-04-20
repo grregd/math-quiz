@@ -28,14 +28,26 @@ function generateQuiz() {
     setupQuiz(quizDiv, +(numberOfQ)/3, catNode.value);
 }
 
+function clearScore() {
+    document.getElementById('score').innerHTML = "";
+}
+
 function onloadBody() {
     generateQuiz();
     disableGrade( false );
+    clearScore();
 }
 
 function onchangeForm() {
     generateQuiz();
     disableGrade( false );
+    clearScore();
+}
+
+function onclickNewTest() {
+    generateQuiz();
+    disableGrade( false );
+    clearScore();
 }
 
 </script>
@@ -49,8 +61,8 @@ function onchangeForm() {
 <form method="POST" name="myquiz" id="myquiz">
 Liczba zadań:
 <select type="select" id="numberOfQuestions" onchange="onchangeForm();">
-    <option value="3">3</option>
-    <option value="6" selected>6</option>
+    <option value="3" selected>3</option>
+    <option value="6">6</option>
     <option value="9">9</option>
     <option value="24">24</option>
 </select>,
@@ -58,6 +70,7 @@ Liczba zadań:
     <option disabled value="zaczek">Żaczek</option>
     <option selected value="maluch">Maluch</option>
 </select>
+<input type="button" value="nowy" name="btnNewTest" onClick="onclickNewTest()"/>
 <br/><br/>
 <div id="queries">
 </div>
