@@ -123,9 +123,14 @@ function gradeit() {
             thequestion[0].parentNode.innerHTML = 'brak odpowiedzi';
         }
     }
-    document.submitForm.B1.disabled = true;
     document.getElementById('score').innerHTML
         = "Punkty: <B>" + totalScore + "</B> na " + maxScore + "<BR/>"
         + "<B>" + 100*totalScore/maxScore + "</B>%";
+
+    disableGrade( true );
+}
+
+function disableGrade( state ) {
+    document.submitForm.B1.disabled = state;
 }
 
