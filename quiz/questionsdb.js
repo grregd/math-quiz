@@ -24,7 +24,8 @@ correctAnswers = [
     'ADBCBECDECECBCBDDDEEEDCD', // 2012
     'DDBCDBEBEDDAEBBDCBDCEBBC', // 2013
     'DDDAAEEEBEEBDBCBCCDBDBDD', // 2014
-    'EAECEEBDADBBCBDCACADECEC'  // 2015
+    'EAECEEBDADBBCBDCACADECEC', // 2015
+    'EEADDCBECSBBADACEDEEBDBC'  // 2016
 ];
 
 
@@ -74,17 +75,17 @@ items5Points = new Array();
 generateItems( items3Points, 1993, 1995, 1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3), basePath + "maluch/" );
 generateItems( items3Points, 1996, 1997, 1, 9,  pts3, baseAnswers, correctAnswers, penalty(pts3), basePath + "maluch/" );
 generateItems( items3Points, 1998, 1998, 1, 7,  pts3, baseAnswers, correctAnswers, penalty(pts3), basePath + "maluch/" );
-generateItems( items3Points, 1999, 2015, 1, 8,  pts3, baseAnswers, correctAnswers, penalty(pts3), basePath + "maluch/" );
+generateItems( items3Points, 1999, 2016, 1, 8,  pts3, baseAnswers, correctAnswers, penalty(pts3), basePath + "maluch/" );
 
 generateItems( items4Points, 1993, 1995, 11, 20, pts4, baseAnswers, correctAnswers, penalty(pts4), basePath + "maluch/" );
 generateItems( items4Points, 1996, 1997, 10, 18, pts4, baseAnswers, correctAnswers, penalty(pts4), basePath + "maluch/" );
 generateItems( items4Points, 1998, 1998, 8,  14, pts4, baseAnswers, correctAnswers, penalty(pts4), basePath + "maluch/" );
-generateItems( items4Points, 1999, 2015, 9,  16, pts4, baseAnswers, correctAnswers, penalty(pts4), basePath + "maluch/" );
+generateItems( items4Points, 1999, 2016, 9,  16, pts4, baseAnswers, correctAnswers, penalty(pts4), basePath + "maluch/" );
 
 generateItems( items5Points, 1993, 1995, 21, 30, pts5, baseAnswers, correctAnswers, penalty(pts5), basePath + "maluch/" );
 generateItems( items5Points, 1996, 1997, 19, 25, pts5, baseAnswers, correctAnswers, penalty(pts5), basePath + "maluch/" );
 generateItems( items5Points, 1998, 1998, 15, 21, pts5, baseAnswers, correctAnswers, penalty(pts5), basePath + "maluch/" );
-generateItems( items5Points, 1999, 2015, 17, 24, pts5, baseAnswers, correctAnswers, penalty(pts5), basePath + "maluch/" );
+generateItems( items5Points, 1999, 2016, 17, 24, pts5, baseAnswers, correctAnswers, penalty(pts5), basePath + "maluch/" );
 
 allItems.set( "maluch", [ items3Points, items4Points, items5Points ] );
 
