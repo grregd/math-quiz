@@ -55,9 +55,9 @@ function createQueryItem(itemNum, item) {
 
 function createGroup(groupTitleHtml, items, startNum) {
     var divGroup = document.createElement('div');
-    divGroupTitle = document.createElement('div');
-    divGroupTitle.innerHTML = groupTitleHtml;
-    divGroup.appendChild( divGroupTitle );
+//    divGroupTitle = document.createElement('div');
+//    divGroupTitle.innerHTML = groupTitleHtml;
+//    divGroup.appendChild( divGroupTitle );
     for ( var i = 0; i < items.length; ++i ) {
         divGroup.appendChild(
             createQueryItem( startNum+i, items[i] ) );
@@ -72,10 +72,22 @@ function setupQuiz(formElement, numInGroup, category) {
     totalQuestions = 3*numInGroup;
     initScore = numInGroup*(3+4+5)/4;
     maxScore = initScore+numInGroup*(3+4+5);
+
+    hNode = document.createElement('h3');
+    hNode.innerHTML = "<b>Zadania za 3 punkty</b>";
+    formElement.appendChild( hNode );
     formElement.appendChild( createGroup(
         "<b>Zadania za 3 punkty", selectRandomItems(allItems.get(category)[0], numInGroup), 0 ) );
+
+    hNode = document.createElement('h3');
+    hNode.innerHTML = "<b>Zadania za 4 punkty</b>";
+    formElement.appendChild( hNode );
     formElement.appendChild( createGroup(
         "<b>Zadania za 4 punkty", selectRandomItems(allItems.get(category)[1], numInGroup), 1*numInGroup ) );
+
+    hNode = document.createElement('h3');
+    hNode.innerHTML = "<b>Zadania za 5 punków</b>";
+    formElement.appendChild( hNode );
     formElement.appendChild( createGroup(
         "<b>Zadania za 5 punków", selectRandomItems(allItems.get(category)[2], numInGroup), 2*numInGroup ) );
 }
