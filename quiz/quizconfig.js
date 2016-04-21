@@ -26,10 +26,14 @@ function createQueryItem(itemNum, item) {
     divQheader.className = "qheader";
     divQheader.appendChild(divQuery);
 
+    var tableNode = document.createElement('table');
+    tableNode.innerHTML = "<tr><td valign='top'>"+
+             divAnswers.innerHTML+"</td><td>"+
+             divQheader.innerHTML+"</td><tr>";
+
     var divItem = document.createElement('div');
 
-    divItem.appendChild( divQheader );
-    divItem.appendChild( divAnswers );
+    divItem.appendChild( tableNode );
 
     var input = document.createElement('input');
     input.name = 'correct'+itemNum;
