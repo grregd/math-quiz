@@ -77,13 +77,13 @@ function setupQuiz(formElement, numInGroup, category) {
     maxScore = initScore+numInGroup*(3+4+5);
 
     formElement.appendChild( createTitleNode( "<b>Zadania za 3 punkty</b>" ) );
-    formElement.appendChild( createQueriesNode( selectRandomItems(allItems.get(category)[0], numInGroup), 0 ) );
+    formElement.appendChild( createQueriesNode( selectRandomItems(allItems[category][0], numInGroup), 0 ) );
 
     formElement.appendChild( createTitleNode( "<b>Zadania za 4 punkty</b>" ) );
-    formElement.appendChild( createQueriesNode( selectRandomItems(allItems.get(category)[1], numInGroup), 1*numInGroup ) );
+    formElement.appendChild( createQueriesNode( selectRandomItems(allItems[category][1], numInGroup), 1*numInGroup ) );
 
     formElement.appendChild( createTitleNode( "<b>Zadania za 5 punków</b>" ) );
-    formElement.appendChild( createQueriesNode( selectRandomItems(allItems.get(category)[2], numInGroup), 2*numInGroup ) );
+    formElement.appendChild( createQueriesNode( selectRandomItems(allItems[category][2], numInGroup), 2*numInGroup ) );
 }
 
 function gradeit() {
