@@ -28,9 +28,17 @@ correctAnswers = [
     'EEADDCBECSBBADACEDEEBDBC'  // 2016
 ];
 
-var startYearZak = 2009;
+var startYearZak = 2001;
 
 correctAnswersZak = [
+    'BCCABCBABCBCBAABDB', // TEST1 2001
+    'CCACCCBBBBDBBCBBBD', // TEST2 2002
+    'CDDBACBBDBABCBCABC', // TEST3 2003
+    'ADCDCCBBBCCABCBCDB', // TEST4 2004
+    'CACBDADCCDBDABAADD', // TEST5 2005
+    'BABCBABABCAADABABD', // TEST6 2006 
+    'BCDBBBACBACBCBCBAB', // 2007  
+    'CDCADCADDABCBCBDCB', // 2008  
     'DBCDBACDDBBCBDADCB', // 2009
     'CCCDBCDCBBBACCCAAB', // 2010
     'CBCADBBABCADDDBADB', // 2011
@@ -108,13 +116,13 @@ items3Points = new Array();
 items4Points = new Array();
 items5Points = new Array();
 
-generateItems( items3Points, 2009, 2011, 1, 6, pts3, baseAnswers4, correctAnswersZak, penalty(pts3), basePath + "zaczek/", startYearZak );
+generateItems( items3Points, 2001, 2011, 1, 6, pts3, baseAnswers4, correctAnswersZak, penalty(pts3), basePath + "zaczek/", startYearZak );
 generateItems( items3Points, 2012, 2015, 1, 7, pts3, baseAnswers, correctAnswersZak, penalty(pts3), basePath + "zaczek/", startYearZak );
 
-generateItems( items4Points, 2009, 2011, 7, 12, pts4, baseAnswers4, correctAnswersZak, penalty(pts4), basePath + "zaczek/", startYearZak );
+generateItems( items4Points, 2001, 2011, 7, 12, pts4, baseAnswers4, correctAnswersZak, penalty(pts4), basePath + "zaczek/", startYearZak );
 generateItems( items4Points, 2012, 2015, 8, 14, pts4, baseAnswers, correctAnswersZak, penalty(pts4), basePath + "zaczek/", startYearZak );
 
-generateItems( items5Points, 2009, 2011, 13, 18, pts5, baseAnswers4, correctAnswersZak, penalty(pts5), basePath + "zaczek/", startYearZak );
+generateItems( items5Points, 2001, 2011, 13, 18, pts5, baseAnswers4, correctAnswersZak, penalty(pts5), basePath + "zaczek/", startYearZak );
 generateItems( items5Points, 2012, 2015, 15, 21, pts5, baseAnswers, correctAnswersZak, penalty(pts5), basePath + "zaczek/", startYearZak );
 
 allItems["zaczek"] = [ items3Points, items4Points, items5Points ];
