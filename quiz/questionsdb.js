@@ -77,7 +77,7 @@ function generateItems( table, yBeg, yEnd, qBeg, qEnd, points, answers, correct,
 
 function selectRandomItems( array, numberOfItems ) {
     var randomNumbers = new Set();
-    while ( numberOfItems-- > 0 ) {
+    while ( randomNumbers.size != numberOfItems ) {
         randomNumbers.add( Math.floor(Math.random()*array.length) );
     }
 
