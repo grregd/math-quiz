@@ -69,7 +69,7 @@ function penalty( aPointsMax, numOfAlt ) {
 function generateItems( table, yBeg, yEnd, qBeg, qEnd, points, answers, correct, aPenalty, aBasePath, startYear ) {
     for ( year = yBeg; year <= yEnd; ++year ) {
         for ( query = qBeg; query <= qEnd; ++query ) {
-            table.push( createItem( '<img src="' + aBasePath + year + '/' + ('0' + query).slice(-2) + '.png"/>',
+            table.push( createItem( '<img src="' + aBasePath + year + '/' + ('0' + query).slice(-2) + '.png" width="90%"/>',
                                     points, answers, correct[year-startYear][query-1], aPenalty) );
         }
     }
@@ -116,11 +116,11 @@ items3Points = new Array();
 items4Points = new Array();
 items5Points = new Array();
 
-generateItems( items3Points, 2001, 2011, 1, 6, pts3, baseAnswers4, correctAnswersZak, penalty(pts3, baseAnswers4.length-1), basePath + "zaczek/", startYearZak );
-generateItems( items3Points, 2012, 2015, 1, 7, pts3, baseAnswers, correctAnswersZak, penalty(pts3, baseAnswers.length-1), basePath + "zaczek/", startYearZak );
+generateItems( items3Points, 2001, 2011, 1, 6, pts3, baseAnswers4, correctAnswersZak, penalty(pts3), basePath + "zaczek/", startYearZak );
+generateItems( items3Points, 2012, 2016, 1, 7, pts3, baseAnswers, correctAnswersZak, penalty(pts3), basePath + "zaczek/", startYearZak );
 
-generateItems( items4Points, 2001, 2011, 7, 12, pts4, baseAnswers4, correctAnswersZak, penalty(pts4, baseAnswers4.length-1), basePath + "zaczek/", startYearZak );
-generateItems( items4Points, 2012, 2015, 8, 14, pts4, baseAnswers, correctAnswersZak, penalty(pts4, baseAnswers.length-1), basePath + "zaczek/", startYearZak );
+generateItems( items4Points, 2001, 2011, 7, 12, pts4, baseAnswers4, correctAnswersZak, penalty(pts4), basePath + "zaczek/", startYearZak );
+generateItems( items4Points, 2012, 2016, 8, 14, pts4, baseAnswers, correctAnswersZak, penalty(pts4), basePath + "zaczek/", startYearZak );
 
 generateItems( items5Points, 2001, 2011, 13, 18, pts5, baseAnswers4, correctAnswersZak, penalty(pts5, baseAnswers4.length-1), basePath + "zaczek/", startYearZak );
 generateItems( items5Points, 2012, 2015, 15, 21, pts5, baseAnswers, correctAnswersZak, penalty(pts5, baseAnswers.length-1), basePath + "zaczek/", startYearZak );
