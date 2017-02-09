@@ -53,6 +53,12 @@ function createQueryItem(itemNum, item) {
     input.value = item.penalty;
     divItem.appendChild( input );
 
+    input = document.createElement('input');
+    input.name = 'query_id'+itemNum;
+    input.type = 'hidden';
+    input.value = item.query;
+    divItem.appendChild( input );
+
 
     return divItem;
 }
@@ -102,6 +108,8 @@ function gradeit() {
         var points  = +(e.value);
         e = eval("document.myquiz.penalty"+q);
         var penalty = +(e.value);
+        e = eval("document.myquiz.query_id"+q);
+        var queryId = e.value;
 
         var answered = false;
         for ( c = 0 ; c < thequestion.length ; c++ ) {
@@ -120,7 +128,8 @@ function gradeit() {
                     totalScore -= penalty;
                     thequestion[c].parentNode.innerHTML
                         = thequestion[c].value + ': <B style="color:red">NIE</B>'
-                        + " Poprawna odpowiedź: " + correct;
+                        + " Poprawna odpowiedź: " + correct
+                        + " <pre>" + $('<i></i>').text(queryId).html() + "</pre>";
                 }
 
                 answered = true;
