@@ -113,7 +113,8 @@ function gradeit() {
                 }
                 else if ( 'brak odpowiedzi' == thequestion[c].value) {
                     thequestion[c].parentNode.innerHTML
-                        = thequestion[c].value;
+                        = thequestion[c].value
+                        + " Poprawna odpowiedź: " + correct;
                 }
                 else {
                     totalScore -= penalty;
