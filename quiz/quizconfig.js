@@ -80,20 +80,52 @@ function createQueriesNode(items, startNum) {
     return divGroup;
 }
 
+function calcTotalPenalty(items) {
+    result = 0;
+    for ( var i = 0; i < items.length; ++i ) {
+        result += items[i].penalty;
+        console.log("penalty: "+items[i].penalty);
+    }
+
+    return result;
+}
+
+function calcTotalScore(items) {
+    result = 0;
+    for ( var i = 0; i < items.length; ++i ) {
+        result += items[i].pointsMax.value;
+        console.log("points: "+items[i].pointsMax.value);
+    }
+
+    return result;
+}
 
 function setupQuiz(formElement, numInGroup, category) {
     totalQuestions = 3*numInGroup;
-    initScore = numInGroup*(3+4+5)/4;
-    maxScore = initScore+numInGroup*(3+4+5);
+    initScore = 0;
+    maxScore = 0;
 
     formElement.appendChild( createTitleNode( "<b>Zadania za 3 punkty</b>" ) );
-    formElement.appendChild( createQueriesNode( selectRandomItems(allItems[category][0], numInGroup), 0 ) );
+    items = selectRandomItems(allItems[category][0], numInGroup);
+    maxScore += calcTotalScore(items);
+    initScore += calcTotalPenalty(items);
+    formElement.appendChild( createQueriesNode( items, 0 ) );
 
     formElement.appendChild( createTitleNode( "<b>Zadania za 4 punkty</b>" ) );
-    formElement.appendChild( createQueriesNode( selectRandomItems(allItems[category][1], numInGroup), 1*numInGroup ) );
+    items = selectRandomItems(allItems[category][1], numInGroup);
+    maxScore += calcTotalScore(items);
+    initScore += calcTotalPenalty(items);
+    formElement.appendChild( createQueriesNode( items, 1*numInGroup ) );
 
     formElement.appendChild( createTitleNode( "<b>Zadania za 5 punków</b>" ) );
-    formElement.appendChild( createQueriesNode( selectRandomItems(allItems[category][2], numInGroup), 2*numInGroup ) );
+    items = selectRandomItems(allItems[category][2], numInGroup);
+    maxScore += calcTotalScore(items);
+    initScore += calcTotalPenalty(items);
+    formElement.appendChild( createQueriesNode( items, 2*numInGroup ) );
+
+    maxScore += initScore;
+
+    console.log(maxScore + ", " + initScore);
 }
 
 function gradeit() {

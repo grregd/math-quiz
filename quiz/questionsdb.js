@@ -62,8 +62,8 @@ function createItem( aQuery, aPointsMax, aAnswers, aCorrect, aPenalty ) {
     return { query: aQuery, pointsMax: aPointsMax, answers: aAnswers, correct: aCorrect, penalty: aPenalty };
 }
 
-function penalty( aPointsMax ) {
-    return 1/4*aPointsMax.value;
+function penalty( aPointsMax, numOfAlt ) {
+    return 1/numOfAlt*aPointsMax.value;
 }
 
 function generateItems( table, yBeg, yEnd, qBeg, qEnd, points, answers, correct, aPenalty, aBasePath, startYear ) {
@@ -94,20 +94,20 @@ items3Points = new Array();
 items4Points = new Array();
 items5Points = new Array();
 
-generateItems( items3Points, 1993, 1995, 1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3), basePath + "maluch/", startYearMal );
-generateItems( items3Points, 1996, 1997, 1, 9,  pts3, baseAnswers, correctAnswers, penalty(pts3), basePath + "maluch/", startYearMal );
-generateItems( items3Points, 1998, 1998, 1, 7,  pts3, baseAnswers, correctAnswers, penalty(pts3), basePath + "maluch/", startYearMal );
-generateItems( items3Points, 1999, 2016, 1, 8,  pts3, baseAnswers, correctAnswers, penalty(pts3), basePath + "maluch/", startYearMal );
+generateItems( items3Points, 1993, 1995, 1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3, baseAnswers.length-1), basePath + "maluch/", startYearMal );
+generateItems( items3Points, 1996, 1997, 1, 9,  pts3, baseAnswers, correctAnswers, penalty(pts3, baseAnswers.length-1), basePath + "maluch/", startYearMal );
+generateItems( items3Points, 1998, 1998, 1, 7,  pts3, baseAnswers, correctAnswers, penalty(pts3, baseAnswers.length-1), basePath + "maluch/", startYearMal );
+generateItems( items3Points, 1999, 2016, 1, 8,  pts3, baseAnswers, correctAnswers, penalty(pts3, baseAnswers.length-1), basePath + "maluch/", startYearMal );
 
-generateItems( items4Points, 1993, 1995, 11, 20, pts4, baseAnswers, correctAnswers, penalty(pts4), basePath + "maluch/", startYearMal );
-generateItems( items4Points, 1996, 1997, 10, 18, pts4, baseAnswers, correctAnswers, penalty(pts4), basePath + "maluch/", startYearMal );
-generateItems( items4Points, 1998, 1998, 8,  14, pts4, baseAnswers, correctAnswers, penalty(pts4), basePath + "maluch/", startYearMal );
-generateItems( items4Points, 1999, 2016, 9,  16, pts4, baseAnswers, correctAnswers, penalty(pts4), basePath + "maluch/", startYearMal );
+generateItems( items4Points, 1993, 1995, 11, 20, pts4, baseAnswers, correctAnswers, penalty(pts4, baseAnswers.length-1), basePath + "maluch/", startYearMal );
+generateItems( items4Points, 1996, 1997, 10, 18, pts4, baseAnswers, correctAnswers, penalty(pts4, baseAnswers.length-1), basePath + "maluch/", startYearMal );
+generateItems( items4Points, 1998, 1998, 8,  14, pts4, baseAnswers, correctAnswers, penalty(pts4, baseAnswers.length-1), basePath + "maluch/", startYearMal );
+generateItems( items4Points, 1999, 2016, 9,  16, pts4, baseAnswers, correctAnswers, penalty(pts4, baseAnswers.length-1), basePath + "maluch/", startYearMal );
 
-generateItems( items5Points, 1993, 1995, 21, 30, pts5, baseAnswers, correctAnswers, penalty(pts5), basePath + "maluch/", startYearMal );
-generateItems( items5Points, 1996, 1997, 19, 25, pts5, baseAnswers, correctAnswers, penalty(pts5), basePath + "maluch/", startYearMal );
-generateItems( items5Points, 1998, 1998, 15, 21, pts5, baseAnswers, correctAnswers, penalty(pts5), basePath + "maluch/", startYearMal );
-generateItems( items5Points, 1999, 2016, 17, 24, pts5, baseAnswers, correctAnswers, penalty(pts5), basePath + "maluch/", startYearMal );
+generateItems( items5Points, 1993, 1995, 21, 30, pts5, baseAnswers, correctAnswers, penalty(pts5, baseAnswers.length-1), basePath + "maluch/", startYearMal );
+generateItems( items5Points, 1996, 1997, 19, 25, pts5, baseAnswers, correctAnswers, penalty(pts5, baseAnswers.length-1), basePath + "maluch/", startYearMal );
+generateItems( items5Points, 1998, 1998, 15, 21, pts5, baseAnswers, correctAnswers, penalty(pts5, baseAnswers.length-1), basePath + "maluch/", startYearMal );
+generateItems( items5Points, 1999, 2016, 17, 24, pts5, baseAnswers, correctAnswers, penalty(pts5, baseAnswers.length-1), basePath + "maluch/", startYearMal );
 
 allItems["maluch"] = [ items3Points, items4Points, items5Points ];
 
@@ -116,14 +116,14 @@ items3Points = new Array();
 items4Points = new Array();
 items5Points = new Array();
 
-generateItems( items3Points, 2001, 2011, 1, 6, pts3, baseAnswers4, correctAnswersZak, penalty(pts3), basePath + "zaczek/", startYearZak );
-generateItems( items3Points, 2012, 2015, 1, 7, pts3, baseAnswers, correctAnswersZak, penalty(pts3), basePath + "zaczek/", startYearZak );
+generateItems( items3Points, 2001, 2011, 1, 6, pts3, baseAnswers4, correctAnswersZak, penalty(pts3, baseAnswers4.length-1), basePath + "zaczek/", startYearZak );
+generateItems( items3Points, 2012, 2015, 1, 7, pts3, baseAnswers, correctAnswersZak, penalty(pts3, baseAnswers.length-1), basePath + "zaczek/", startYearZak );
 
-generateItems( items4Points, 2001, 2011, 7, 12, pts4, baseAnswers4, correctAnswersZak, penalty(pts4), basePath + "zaczek/", startYearZak );
-generateItems( items4Points, 2012, 2015, 8, 14, pts4, baseAnswers, correctAnswersZak, penalty(pts4), basePath + "zaczek/", startYearZak );
+generateItems( items4Points, 2001, 2011, 7, 12, pts4, baseAnswers4, correctAnswersZak, penalty(pts4, baseAnswers4.length-1), basePath + "zaczek/", startYearZak );
+generateItems( items4Points, 2012, 2015, 8, 14, pts4, baseAnswers, correctAnswersZak, penalty(pts4, baseAnswers.length-1), basePath + "zaczek/", startYearZak );
 
-generateItems( items5Points, 2001, 2011, 13, 18, pts5, baseAnswers4, correctAnswersZak, penalty(pts5), basePath + "zaczek/", startYearZak );
-generateItems( items5Points, 2012, 2015, 15, 21, pts5, baseAnswers, correctAnswersZak, penalty(pts5), basePath + "zaczek/", startYearZak );
+generateItems( items5Points, 2001, 2011, 13, 18, pts5, baseAnswers4, correctAnswersZak, penalty(pts5, baseAnswers4.length-1), basePath + "zaczek/", startYearZak );
+generateItems( items5Points, 2012, 2015, 15, 21, pts5, baseAnswers, correctAnswersZak, penalty(pts5, baseAnswers.length-1), basePath + "zaczek/", startYearZak );
 
 allItems["zaczek"] = [ items3Points, items4Points, items5Points ];
 
