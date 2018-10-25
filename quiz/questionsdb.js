@@ -49,6 +49,12 @@ correctAnswersZak = [
     'DDDBDCEEAEDBCEEBEBADB' // 2016
 ];
 
+var startYearSkowronek = 2005;
+
+correctAnswersSkowronek = [
+    'EDDCCCCBBBDEBADAACCBDABDCBECCB' // 2005
+];
+
 
 function createItem( aQuery, aPointsMax, aAnswers, aCorrect, aPenalty ) {
     return { query: aQuery, pointsMax: aPointsMax, answers: aAnswers, correct: aCorrect, penalty: aPenalty };
@@ -90,6 +96,8 @@ var basePath = "../../images/";
 
 allItems = new Map();
 
+// maluch 
+
 items3Points = new Array();
 items4Points = new Array();
 items5Points = new Array();
@@ -111,6 +119,7 @@ generateItems( items5Points, 1999, 2016, 17, 24, pts5, baseAnswers, correctAnswe
 
 allItems["maluch"] = [ items3Points, items4Points, items5Points ];
 
+// żaczek 
 
 items3Points = new Array();
 items4Points = new Array();
@@ -127,4 +136,16 @@ generateItems( items5Points, 2012, 2015, 15, 21, pts5, baseAnswers, correctAnswe
 
 allItems["zaczek"] = [ items3Points, items4Points, items5Points ];
 
+// skowronek 
 
+items3Points = new Array();
+items4Points = new Array();
+items5Points = new Array();
+
+generateItems( items3Points, 2005, 2005, 1, 10, pts3, baseAnswers, correctAnswersSkowronek, penalty(pts3, baseAnswers.length-1), basePath + "skowronek/", startYearSkowronek );
+
+generateItems( items4Points, 2005, 2005, 11, 20, pts4, baseAnswers, correctAnswersSkowronek, penalty(pts4, baseAnswers.length-1), basePath + "skowronek/", startYearSkowronek );
+
+generateItems( items5Points, 2005, 2005, 21, 30, pts5, baseAnswers, correctAnswersSkowronek, penalty(pts5, baseAnswers.length-1), basePath + "skowronek/", startYearSkowronek );
+
+allItems["skowronek"] = [ items3Points, items4Points, items5Points ];

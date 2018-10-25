@@ -72,7 +72,7 @@ function onclickNewTest() {
 <body bgcolor="#FFFFFF" onload="onloadBody();">
 
 <p align="center">
-    
+
     <form name="submitForm">
         <div id="score">
         </div>
@@ -89,8 +89,19 @@ Liczba zadań:
     <option value="24">24</option>
 </select>,
  kategoria: <select name="category" onchange="onchangeForm()">
-    <option value="zaczek">Żaczek</option>
-    <option selected value="maluch">Maluch</option>
+    <option value="zaczek">Żaczek (2 klasa SP)</option>
+    <option selected value="maluch">Maluch (3 i 4 klasa SP)</option>
+    <option value="skowronek">SKOWRONEK (3 klasa SP)</option>
+    <!--
+        kangur: 
+            „Beniamin” — klasy 5. i 6. szkół podstawowych;
+            „Kadet” — klasy 7. i 8. szkół podstawowych;
+            „Junior” — klasy III gimnazjów, I liceów i techników, I, II i III szkół branżowych;
+            „Student” — klasy II i III liceów oraz II, III i IV techników        
+
+        alfik:
+            SKOWRONEK - 3 klasa SP
+     -->
 </select>
 <input type="button" value="nowy" name="btnNewTest" onClick="onclickNewTest()"/>
 <br/><br/>
