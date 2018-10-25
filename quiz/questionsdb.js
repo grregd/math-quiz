@@ -50,14 +50,6 @@ correctAnswersZak = [
 ];
 
 
-var baseAnswers = ['brak odpowiedzi', 'A', 'B', 'C', 'D', 'E'];
-var baseAnswers4 = ['brak odpowiedzi', 'A', 'B', 'C', 'D'];
-var pts3 = { value: 3, label: '<b>3</b> punkty' };
-var pts4 = { value: 4, label: '<b>4</b> punkty' };
-var pts5 = { value: 5, label: '<b>5</b> punkty' };
-
-var basePath = "../../images/";
-
 function createItem( aQuery, aPointsMax, aAnswers, aCorrect, aPenalty ) {
     return { query: aQuery, pointsMax: aPointsMax, answers: aAnswers, correct: aCorrect, penalty: aPenalty };
 }
@@ -88,6 +80,14 @@ function selectRandomItems( array, numberOfItems ) {
 }
 
 
+var baseAnswers = ['brak odpowiedzi', 'A', 'B', 'C', 'D', 'E'];
+var baseAnswers4 = ['brak odpowiedzi', 'A', 'B', 'C', 'D'];
+var pts3 = { value: 3, label: '<b>3</b> punkty' };
+var pts4 = { value: 4, label: '<b>4</b> punkty' };
+var pts5 = { value: 5, label: '<b>5</b> punkty' };
+
+var basePath = "../../images/";
+
 allItems = new Map();
 
 items3Points = new Array();
@@ -116,11 +116,11 @@ items3Points = new Array();
 items4Points = new Array();
 items5Points = new Array();
 
-generateItems( items3Points, 2001, 2011, 1, 6, pts3, baseAnswers4, correctAnswersZak, penalty(pts3), basePath + "zaczek/", startYearZak );
-generateItems( items3Points, 2012, 2016, 1, 7, pts3, baseAnswers, correctAnswersZak, penalty(pts3), basePath + "zaczek/", startYearZak );
+generateItems( items3Points, 2001, 2011, 1, 6, pts3, baseAnswers4, correctAnswersZak, penalty(pts3, baseAnswers4.length-1), basePath + "zaczek/", startYearZak );
+generateItems( items3Points, 2012, 2016, 1, 7, pts3, baseAnswers, correctAnswersZak, penalty(pts3, baseAnswers.length-1), basePath + "zaczek/", startYearZak );
 
-generateItems( items4Points, 2001, 2011, 7, 12, pts4, baseAnswers4, correctAnswersZak, penalty(pts4), basePath + "zaczek/", startYearZak );
-generateItems( items4Points, 2012, 2016, 8, 14, pts4, baseAnswers, correctAnswersZak, penalty(pts4), basePath + "zaczek/", startYearZak );
+generateItems( items4Points, 2001, 2011, 7, 12, pts4, baseAnswers4, correctAnswersZak, penalty(pts4, baseAnswers4.length-1), basePath + "zaczek/", startYearZak );
+generateItems( items4Points, 2012, 2016, 8, 14, pts4, baseAnswers, correctAnswersZak, penalty(pts4, baseAnswers.length-1), basePath + "zaczek/", startYearZak );
 
 generateItems( items5Points, 2001, 2011, 13, 18, pts5, baseAnswers4, correctAnswersZak, penalty(pts5, baseAnswers4.length-1), basePath + "zaczek/", startYearZak );
 generateItems( items5Points, 2012, 2015, 15, 21, pts5, baseAnswers, correctAnswersZak, penalty(pts5, baseAnswers.length-1), basePath + "zaczek/", startYearZak );
