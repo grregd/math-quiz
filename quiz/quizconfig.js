@@ -154,13 +154,13 @@ function gradeit() {
                 else if ( 'brak odpowiedzi' == thequestion[c].value) {
                     thequestion[c].parentNode.innerHTML
                         = thequestion[c].value
-                        + " Poprawna odpowiedź: " + correct;
+                        + "<BR>Poprawna odpowiedź: " + correct;
                 }
                 else {
                     totalScore -= penalty;
                     thequestion[c].parentNode.innerHTML
                         = thequestion[c].value + ': <B style="color:red">NIE</B>'
-                        + " Poprawna odpowiedź: " + correct
+                        + "<BR>Poprawna odpowiedź: " + correct
                         + " <pre>" + $('<i></i>').text(queryId).html() + "</pre>";
                 }
 
@@ -172,7 +172,9 @@ function gradeit() {
         console.log( totalScore );
 
         if ( ! answered ) {
-            thequestion[0].parentNode.innerHTML = 'brak odpowiedzi';
+            thequestion[0].parentNode.innerHTML 
+                = 'brak odpowiedzi. '
+                + "<BR>Poprawna odpowiedź: " + correct;
         }
     }
     document.getElementById('score').innerHTML
