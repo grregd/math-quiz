@@ -15,9 +15,9 @@ font:normal 13px Arial;
 
 </style>
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
 
 <script src="quizconfig.js"></script>
 <script src="questionsdb.js"></script>
@@ -30,16 +30,17 @@ function generateQuiz( destroy ) {
     var numberOfQ = numNode.value;
     var quizDiv = document.getElementById("queries");
 
-    if (destroy) {
-        $( "#queries" ).accordion( "destroy" );
-    }
+    // if (destroy) {
+    //     $( "#queries" ).accordion( "destroy" );
+    // }
+
     quizDiv.innerHTML = "";
 
     setupQuiz(quizDiv, +(numberOfQ)/3, catNode.value);
 
-  $("#queries").accordion( {
-        heightStyle: "fill",
-        collapsible: true} );
+//   $("#queries").accordion( {
+//         heightStyle: "fill",
+//         collapsible: false} );
 }
 
 function clearScore() {
@@ -71,7 +72,13 @@ function onclickNewTest() {
 <body bgcolor="#FFFFFF" onload="onloadBody();">
 
 <p align="center">
-
+    
+    <form name="submitForm">
+        <div id="score">
+        </div>
+        <input type="button" value="Sprawdź" name="B1" onClick="gradeit()" autocomplete="off">
+        </form>
+        
 <form method="POST" name="myquiz" id="myquiz">
 Liczba zadań:
 <select type="select" id="numberOfQuestions" onchange="onchangeForm();">
@@ -91,11 +98,6 @@ Liczba zadań:
 </div>
 </form>
 
-<form name="submitForm">
-<div id="score">
-</div>
-<input type="button" value="Sprawdź" name="B1" onClick="gradeit()" autocomplete="off">
-</form>
 
 
 <script>

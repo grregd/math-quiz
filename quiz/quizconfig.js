@@ -173,7 +173,7 @@ function gradeit() {
 
         if ( ! answered ) {
             thequestion[0].parentNode.innerHTML 
-                = 'brak odpowiedzi. '
+                = '<B style="color: red">Brak odpowiedzi.</B>'
                 + "<BR>Poprawna odpowiedź: " + correct;
         }
     }

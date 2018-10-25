@@ -61,7 +61,7 @@ function penalty( aPointsMax, numOfAlt ) {
 function generateItems( table, yBeg, yEnd, qBeg, qEnd, points, answers, correct, aPenalty, aBasePath, startYear ) {
     for ( year = yBeg; year <= yEnd; ++year ) {
         for ( query = qBeg; query <= qEnd; ++query ) {
-            table.push( createItem( '<img src="' + aBasePath + year + '/' + ('0' + query).slice(-2) + '.png"/>',
+            table.push( createItem( '<img src="' + aBasePath + year + '/' + ('0' + query).slice(-2) + '.png" width="100%"/>',
                                     points, answers, correct[year-startYear][query-1], aPenalty) );
         }
     }
