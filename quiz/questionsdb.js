@@ -52,7 +52,8 @@ correctAnswersZak = [
 var startYearSkowronek = 2005;
 
 correctAnswersSkowronek = [
-    'EDDCCCCBBBDEBADAACCBDABDCBECCB' // 2005
+    'EDDCCCCBBBDEBADAACCBDABDCBECCB', // 2005
+    'ADDAADABBBDCEDACAABDBDDBBCCDDD' // 2006
 ];
 
 var startYearJerzyk = 2005;
@@ -157,11 +158,11 @@ generate["skowronek"] = function() {
     items4Points = new Array();
     items5Points = new Array();
 
-    generateItems( items3Points, 2005, 2005, 1, 10, pts3, baseAnswers, correctAnswersSkowronek, penalty(pts3, baseAnswers.length-1), basePath + "skowronek/", startYearSkowronek );
+    generateItems( items3Points, 2005, 2006, 1, 10, pts3, baseAnswers, correctAnswersSkowronek, penalty(pts3, baseAnswers.length-1), basePath + "skowronek/", startYearSkowronek );
 
-    generateItems( items4Points, 2005, 2005, 11, 20, pts4, baseAnswers, correctAnswersSkowronek, penalty(pts4, baseAnswers.length-1), basePath + "skowronek/", startYearSkowronek );
+    generateItems( items4Points, 2005, 2006, 11, 20, pts4, baseAnswers, correctAnswersSkowronek, penalty(pts4, baseAnswers.length-1), basePath + "skowronek/", startYearSkowronek );
 
-    generateItems( items5Points, 2005, 2005, 21, 30, pts5, baseAnswers, correctAnswersSkowronek, penalty(pts5, baseAnswers.length-1), basePath + "skowronek/", startYearSkowronek );
+    generateItems( items5Points, 2005, 2006, 21, 30, pts5, baseAnswers, correctAnswersSkowronek, penalty(pts5, baseAnswers.length-1), basePath + "skowronek/", startYearSkowronek );
 
     allItems["skowronek"] = [ items3Points, items4Points, items5Points ];
 }
