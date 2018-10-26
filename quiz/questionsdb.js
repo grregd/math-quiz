@@ -61,6 +61,10 @@ correctAnswersJerzyk = [
     'DBBCCBCCBDEDEECBCEEEDEDECDACDC' // 2005
 ];
 
+var startYearJaskolka = 2005;
+correctAnswersJaskolka = [
+    'ACADABCBEBBDCDEBCCABCECACCDECB' // 2005
+];
 
 function createItem( aQuery, aPointsMax, aAnswers, aCorrect, aPenalty ) {
     return { query: aQuery, pointsMax: aPointsMax, answers: aAnswers, correct: aCorrect, penalty: aPenalty };
@@ -177,7 +181,24 @@ generate["jerzyk"] = function() {
     allItems["jerzyk"] = [ items3Points, items4Points, items5Points ];
 }
 
+// jerzyk
+generate["jaskolka"] = function() {
+    items3Points = new Array();
+    items4Points = new Array();
+    items5Points = new Array();
+
+    generateItems( items3Points, 2005, 2005, 1, 10, pts3, baseAnswers, correctAnswersJaskolka, penalty(pts3, baseAnswers.length-1), basePath + "jaskolka/", startYearJaskolka );
+
+    generateItems( items4Points, 2005, 2005, 11, 20, pts4, baseAnswers, correctAnswersJaskolka, penalty(pts4, baseAnswers.length-1), basePath + "jaskolka/", startYearJaskolka );
+
+    generateItems( items5Points, 2005, 2005, 21, 30, pts5, baseAnswers, correctAnswersJaskolka, penalty(pts5, baseAnswers.length-1), basePath + "jaskolka/", startYearJaskolka );
+
+    allItems["jaskolka"] = [ items3Points, items4Points, items5Points ];
+}
+
 generate["maluch"]();
 generate["zaczek"]();
 generate["skowronek"]();
 generate["jerzyk"]();
+generate["jaskolka"]();
+
