@@ -20,7 +20,9 @@ function generateItems( table, yBeg, yEnd, qBeg, qEnd, points, answers, correct,
 function selectRandomItems( array, numberOfItems ) {
     var randomNumbers = new Set();
     while ( randomNumbers.size != numberOfItems ) {
-        randomNumbers.add( Math.floor(Math.random()*array.length) );
+        value = Math.floor(Math.random()*array.length);
+        if (array[value].correct != 'X')
+            randomNumbers.add( value );
     }
 
     var result = new Array();
@@ -175,7 +177,8 @@ generate["jerzyk"] = function() {
 generate["jaskolka"] = function() {
     var startYear = 2005;
     correctAnswers = [
-        'ACADABCBEBBDCDEBCCABCECACCDECB' // 2005
+        'ACADABCBEBBDCDEBCCABCECACCDECB', // 2005
+        'CCEBEACCCBAXDACADBEBAEABBBCCCA' // 2006
     ];
     
     items3Points = new Array();
