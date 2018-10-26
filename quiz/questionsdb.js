@@ -157,7 +157,8 @@ generate["jerzyk"] = function() {
     var startYear = 2005;
 
     correctAnswers = [
-        'DBBCCBCCBDEDEECBCEEEDEDECDACDC' // 2005
+        'DBBCCBCCBDEDEECBCEEEDEDECDACDC', // 2005
+        'BEADEDEBDEBAACBCBDACCDCCCCBDAB' // 2006
     ];
     
     items3Points = new Array();
