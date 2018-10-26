@@ -144,26 +144,27 @@ function gradeit() {
         var queryId = e.value;
 
         var answered = false;
+        html = '';
         for ( c = 0 ; c < thequestion.length ; c++ ) {
             if (thequestion[c].checked==true) {
                 if (correct == thequestion[c].value) {
                     totalScore += points;
-                    thequestion[c].parentNode.innerHTML
-                        = thequestion[c].value + ': <B style="color: green">TAK</B>';
+                    html = thequestion[c].value + ': <B style="color: green">TAK</B>'
+                         + " <pre>" + $('<i></i>').text(queryId).html() + "</pre>";
                 }
-                else if ( 'brak odpowiedzi' == thequestion[c].value) {
-                    thequestion[c].parentNode.innerHTML
-                        = thequestion[c].value
-                        + "<BR>Poprawna odpowiedź: " + correct;
-                }
-                else {
-                    totalScore -= penalty;
-                    thequestion[c].parentNode.innerHTML
-                        = thequestion[c].value + ': <B style="color:red">NIE</B>'
-                        + "<BR>Poprawna odpowiedź: " + correct
-                        + " <pre>" + $('<i></i>').text(queryId).html() + "</pre>";
+                else
+                {
+                    html = thequestion[c].value;
+                    if ( 'brak odpowiedzi' != thequestion[c].value) {
+                        totalScore -= penalty;
+                        html += ': <B style="color:red">NIE</B>';
+                    }
+
+                    html += "<BR>Poprawna odpowiedź: " + correct
+                         +  " <pre>" + $('<i></i>').text(queryId).html() + "</pre>";
                 }
 
+                thequestion[c].parentNode.innerHTML = html;
                 answered = true;
                 break;
             }
@@ -174,7 +175,8 @@ function gradeit() {
         if ( ! answered ) {
             thequestion[0].parentNode.innerHTML 
                 = '<B style="color: red">Brak odpowiedzi.</B>'
-                + "<BR>Poprawna odpowiedź: " + correct;
+                + "<BR>Poprawna odpowiedź: " + correct
+                + " <pre>" + $('<i></i>').text(queryId).html() + "</pre>";
         }
     }
     document.getElementById('score').innerHTML
