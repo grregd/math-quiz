@@ -154,9 +154,9 @@ generate["skowronek"] = function() {
     items4Points = new Array();
     items5Points = new Array();
 
-    generateItems( items3Points, 2005, 2011,  1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3, baseAnswers.length-1), basePath + "skowronek/", startYear );
-    generateItems( items4Points, 2005, 2011, 11, 20, pts4, baseAnswers, correctAnswers, penalty(pts4, baseAnswers.length-1), basePath + "skowronek/", startYear );
-    generateItems( items5Points, 2005, 2011, 21, 30, pts5, baseAnswers, correctAnswers, penalty(pts5, baseAnswers.length-1), basePath + "skowronek/", startYear );
+    generateItems( items3Points, startYear, startYear+correctAnswers.length-1,  1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3, baseAnswers.length-1), basePath + "skowronek/", startYear );
+    generateItems( items4Points, startYear, startYear+correctAnswers.length-1, 11, 20, pts4, baseAnswers, correctAnswers, penalty(pts4, baseAnswers.length-1), basePath + "skowronek/", startYear );
+    generateItems( items5Points, startYear, startYear+correctAnswers.length-1, 21, 30, pts5, baseAnswers, correctAnswers, penalty(pts5, baseAnswers.length-1), basePath + "skowronek/", startYear );
 
     allItems["skowronek"] = [ items3Points, items4Points, items5Points ];
 }
@@ -177,9 +177,9 @@ generate["jerzyk"] = function() {
     items4Points = new Array();
     items5Points = new Array();
 
-    generateItems( items3Points, 2005, 2009,  1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3, baseAnswers.length-1), basePath + "jerzyk/", startYear );
-    generateItems( items4Points, 2005, 2009, 11, 20, pts4, baseAnswers, correctAnswers, penalty(pts4, baseAnswers.length-1), basePath + "jerzyk/", startYear );
-    generateItems( items5Points, 2005, 2009, 21, 30, pts5, baseAnswers, correctAnswers, penalty(pts5, baseAnswers.length-1), basePath + "jerzyk/", startYear );
+    generateItems( items3Points, startYear, startYear+correctAnswers.length-1,  1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3, baseAnswers.length-1), basePath + "jerzyk/", startYear );
+    generateItems( items4Points, startYear, startYear+correctAnswers.length-1, 11, 20, pts4, baseAnswers, correctAnswers, penalty(pts4, baseAnswers.length-1), basePath + "jerzyk/", startYear );
+    generateItems( items5Points, startYear, startYear+correctAnswers.length-1, 21, 30, pts5, baseAnswers, correctAnswers, penalty(pts5, baseAnswers.length-1), basePath + "jerzyk/", startYear );
 
     allItems["jerzyk"] = [ items3Points, items4Points, items5Points ];
 }
@@ -195,9 +195,9 @@ generate["jaskolka"] = function() {
     items4Points = new Array();
     items5Points = new Array();
 
-    generateItems( items3Points, 2005, 2006,  1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3, baseAnswers.length-1), basePath + "jaskolka/", startYear );
-    generateItems( items4Points, 2005, 2006, 11, 20, pts4, baseAnswers, correctAnswers, penalty(pts4, baseAnswers.length-1), basePath + "jaskolka/", startYear );
-    generateItems( items5Points, 2005, 2006, 21, 30, pts5, baseAnswers, correctAnswers, penalty(pts5, baseAnswers.length-1), basePath + "jaskolka/", startYear );
+    generateItems( items3Points, startYear, startYear+correctAnswers.length-1,  1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3, baseAnswers.length-1), basePath + "jaskolka/", startYear );
+    generateItems( items4Points, startYear, startYear+correctAnswers.length-1, 11, 20, pts4, baseAnswers, correctAnswers, penalty(pts4, baseAnswers.length-1), basePath + "jaskolka/", startYear );
+    generateItems( items5Points, startYear, startYear+correctAnswers.length-1, 21, 30, pts5, baseAnswers, correctAnswers, penalty(pts5, baseAnswers.length-1), basePath + "jaskolka/", startYear );
 
     allItems["jaskolka"] = [ items3Points, items4Points, items5Points ];
 }
