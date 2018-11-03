@@ -101,27 +101,53 @@ function calcTotalScore(items) {
 }
 
 function setupQuiz(formElement, numInGroup, category) {
-    totalQuestions = 3*numInGroup;
+    allQuestions = 3*numInGroup;
     initScore = 0;
     maxScore = 0;
 
-    formElement.appendChild( createTitleNode( "<b>Zadania za 3 punkty</b>" ) );
-    items = selectRandomItems(allItems[category][0], numInGroup);
-    maxScore += calcTotalScore(items);
-    initScore += calcTotalPenalty(items);
-    formElement.appendChild( createQueriesNode( items, 0 ) );
+    numOfQuestions = 0;
+    items_0 = new Array();
+    items_1 = new Array();
+    items_2 = new Array();
+    while (numOfQuestions < allQuestions)
+    {
+        items = selectRandomItems(allItems[category][0], Math.min(1, allQuestions - numOfQuestions));
+        numOfQuestions += items.length;
+        items_0 = items_0.concat(items);
 
-    formElement.appendChild( createTitleNode( "<b>Zadania za 4 punkty</b>" ) );
-    items = selectRandomItems(allItems[category][1], numInGroup);
-    maxScore += calcTotalScore(items);
-    initScore += calcTotalPenalty(items);
-    formElement.appendChild( createQueriesNode( items, 1*numInGroup ) );
+        items = selectRandomItems(allItems[category][1], Math.min(1, allQuestions - numOfQuestions));
+        numOfQuestions += items.length;
+        items_1 = items_1.concat(items);
 
-    formElement.appendChild( createTitleNode( "<b>Zadania za 5 punków</b>" ) );
-    items = selectRandomItems(allItems[category][2], numInGroup);
-    maxScore += calcTotalScore(items);
-    initScore += calcTotalPenalty(items);
-    formElement.appendChild( createQueriesNode( items, 2*numInGroup ) );
+        items = selectRandomItems(allItems[category][2], Math.min(1, allQuestions - numOfQuestions));
+        numOfQuestions += items.length;
+        items_2 = items_2.concat(items);
+    }
+
+
+    if (items_0.length > 0)
+    {
+        formElement.appendChild( createTitleNode( "<b>Zadania za 3 punkty</b>" ) );
+        maxScore += calcTotalScore(items_0);
+        initScore += calcTotalPenalty(items_0);
+        formElement.appendChild( createQueriesNode( items_0, 0 ) );
+    }
+
+    if (items_1.length > 0)
+    {
+        formElement.appendChild( createTitleNode( "<b>Zadania za 4 punkty</b>" ) );
+        maxScore += calcTotalScore(items_1);
+        initScore += calcTotalPenalty(items_1);
+        formElement.appendChild( createQueriesNode( items_1, 1*numInGroup ) );
+    }
+
+    if (items_2.length > 0)
+    {
+        formElement.appendChild( createTitleNode( "<b>Zadania za 5 punków</b>" ) );
+        maxScore += calcTotalScore(items_2);
+        initScore += calcTotalPenalty(items_2);
+        formElement.appendChild( createQueriesNode( items_2, 2*numInGroup ) );
+    }
 
     maxScore += initScore;
 

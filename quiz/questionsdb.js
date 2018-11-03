@@ -19,10 +19,13 @@ function generateItems( table, yBeg, yEnd, qBeg, qEnd, points, answers, correct,
 
 function selectRandomItems( array, numberOfItems ) {
     var randomNumbers = new Set();
-    while ( randomNumbers.size != numberOfItems ) {
+    var maxPossible = array.length;
+    while ( randomNumbers.size < Math.min(numberOfItems, maxPossible)) {
         value = Math.floor(Math.random()*array.length);
         if (array[value].correct != 'X')
             randomNumbers.add( value );
+        else
+            --maxPossible;
     }
 
     var result = new Array();
@@ -154,7 +157,7 @@ generate["skowronek"] = function() {
     items4Points = new Array();
     items5Points = new Array();
 
-    generateItems( items3Points, startYear, startYear+correctAnswers.length-1,  1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3, baseAnswers.length-1), basePath + "skowronek/", startYear );
+    // generateItems( items3Points, startYear, startYear+correctAnswers.length-1,  1, 10, pts3, baseAnswers, correctAnswers, penalty(pts3, baseAnswers.length-1), basePath + "skowronek/", startYear );
     generateItems( items4Points, startYear, startYear+correctAnswers.length-1, 11, 20, pts4, baseAnswers, correctAnswers, penalty(pts4, baseAnswers.length-1), basePath + "skowronek/", startYear );
     generateItems( items5Points, startYear, startYear+correctAnswers.length-1, 21, 30, pts5, baseAnswers, correctAnswers, penalty(pts5, baseAnswers.length-1), basePath + "skowronek/", startYear );
 
